@@ -1,0 +1,17 @@
+version: '2'
+
+networks:
+  test:
+
+services:
+  pgsql:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - /tank/pgsql-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    container_name: pgsql
+    networks:
+      - test
